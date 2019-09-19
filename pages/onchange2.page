@@ -1,0 +1,11 @@
+<apex:page name="actionSupportPage" StandardController="Opportunity"  extensions="ActionSupportController">
+    <apex:form >
+        <apex:outputLabel > AccountId: &nbsp;</apex:outputLabel>        
+        <apex:inputField id="OpportunityId" value="{!opptyObj.Name}" required="true"> 
+             <apex:actionSupport event="onchange" reRender="values" action="{!passValueToController}" >
+             </apex:actionSupport>
+        </apex:inputField>
+
+     <apex:outputText value="{!fieldValue}" label="You have selected:" id="values" /> 
+</apex:form>
+</apex:page>

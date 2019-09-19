@@ -1,0 +1,4 @@
+<apex:page standardcontroller="user" recordSetVar="users" renderAs="pdf">
+  <apex:pageblock >
+  <apex:pageBlockTable border="10px" value="{!users}" var="a"><apex:column value="{!a.name}"/><apex:column value="{!a.email}"/></apex:pageBlockTable></apex:pageblock>
+</apex:page>

@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/Leaflet": [
+                "../staticresources/Leaflet/Leaflet.js"
+            ],
+            "c/jszip": [
+                "../staticresources/jszip/jszip.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

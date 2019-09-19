@@ -1,0 +1,123 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="ContactControllertable">
+    
+    <aura:html tag="style">
+        
+        .slds-modal__container{
+        width: 80% !important;
+        max-width: 80% !important;
+        
+        }
+        
+    </aura:html>
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="selectedRows" type="List"/>
+    <aura:attribute name="msg" type="String"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute access="private" name="error" type="String" default=""/>
+    
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <!--picklist-->
+    <!-- aura attributes-->  
+    <aura:attribute name="listControllingValues" type="list" default="[]" description="to store controller field values"/>
+    <aura:attribute name="listDependingValues" type="list" default="['--- None ---']" description="to store dependent field values"/>
+    <aura:attribute name="depnedentFieldMap" type="map" description="map to store dependent values with controlling value"/>
+    <aura:attribute name="bDisabledDependentFld" type="boolean" default="true"/> 
+    
+    <aura:attribute name="objDetail" type="contact" default="{'sobjectType' : 'contact'}"/>
+    <aura:attribute name="controllingFieldAPI" type="string" default="contact_test__c" description="store field API name of Controller field"/>
+    <aura:attribute name="dependingFieldAPI" type="string" default="Level__c" description="store field API name of dependent field"/>
+    <aura:attribute name="Conselected" type="string" default=""/>
+    <aura:attribute name="Depselected" type="string" default=""/>
+    <!--Picklist-->
+    
+    <!-- handlers-->
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <div class="{!not(empty(v.data))?'slds-hidden':''}">
+        <div class="slds-align_absolute-center slds-text-title_caps ">
+            {!v.msg}
+        </div>
+       
+    </div>
+    <div class="{!not(empty(v.data))?'':'slds-hidden'}">
+       
+        <div class="modal-header slds-modal__header slds-size_1-of-1">
+            <h4 class="title slds-text-heading--medium" >Header</h4>
+            <aura:if isTrue="{! !empty(v.error)}">
+                <div class="slds-notify slds-notify_toast slds-theme_error">
+                    <span class="slds-assistive-text">ERROR</span>
+                    <div class="slds-notify__content">
+                        <h5 class="slds-text-heading_small slds-align_absolute-center">Error Message </h5>
+                        <br/>
+                        <p class="slds-align_absolute-center">{!v.error}</p>                
+                    </div>
+                </div>
+            </aura:if>
+        </div>
+        <lightning:layout>
+            <lightning:layoutItem size="3" padding="around-small">    
+                <lightning:select name="controllerFld" 
+                                  aura:id="inpfield"
+                                  required="true" 
+                                  value="{!v.Conselected}"
+                                  label="Contact Test"
+                                  messageWhenValueMissing="Choose a Value"
+                                  onchange="{!c.onControllerFieldChange}">
+                    <aura:iteration items="{!v.listControllingValues}" var="val">
+                        <option value="{!val=='--- None ---'?'':val}">{!val}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="3" padding="around-small"> 
+                
+                <lightning:select name="dependentFld"
+                                  aura:id="inpfield"
+                                  value="{!v.Depselected}" 
+                                  label="Level"
+                                  messageWhenValueMissing="Choose a Value"
+                                  required="{!!v.bDisabledDependentFld}"
+                                  disabled="{!v.bDisabledDependentFld}">
+                    <aura:iteration items="{!v.listDependingValues}" var="val">
+                        <option value="{!val=='--- None ---'?'':val}">{!val}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </lightning:layoutItem>
+            
+            <lightning:layoutItem size="3" padding="around-small">
+                <lightning:textarea name="input1" label="Comments" required="true" aura:id="inpfield"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+        
+        
+        <!--picklist-->
+        <div class="slds-align_absolute-center">
+            
+            <lightning:button variant="brand" label="Add" onclick="{!c.clickAdd}"/>
+            <lightning:button variant="brand" label="Close" onclick="{!c.close}"/>
+            
+            
+            
+        </div>
+        
+        
+        <div style="height: 300px">
+            
+            <h1>Selected Rows: {! v.selectedRowsCount }</h1>
+            
+            
+            
+            <lightning:datatable aura:id="dtable"
+                                 columns="{!v.columns }"
+                                 data="{!v.data }"
+                                 keyField="Id"
+                                 onrowselection="{! c.updateSelectedText }"/>
+            
+            
+            
+            
+        </div>
+    </div>
+</aura:component>

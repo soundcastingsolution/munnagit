@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<div class='c-container'>
+   <lightning:card>  
+   <div class="slds-p-horizontal_large">
+    <lightning:badge label="Qualified" class="slds-badge_inverse"/>
+</div>
+        </lightning:card>
+        </div>
+</aura:component>

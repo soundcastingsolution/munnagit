@@ -1,0 +1,8 @@
+<aura:component >
+<aura:attribute name="Account" type="Account"/>
+<div onclick="{!c.gotoRecord}">
+<force:recordView recordId="{!v.Account.Id}" type="MINI"/>
+</div>
+<!-- Open the record edit page when the button is clicked -->
+<ui:button label="Edit" press="{!c.editRecord}"/>
+</aura:component>

@@ -1,0 +1,9 @@
+<apex:page controller="onchangeclass">
+  <apex:form id="form1">
+  <apex:inputText value="{!name}">
+  <apex:actionSupport event="onchange" action="{!accidM}" reRender="otxt"/>
+  </apex:inputText>
+   <apex:outputText Value="{!accid}" id="otxt"/>
+  
+  </apex:form>
+</apex:page>

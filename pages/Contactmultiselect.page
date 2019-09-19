@@ -1,0 +1,10 @@
+<apex:page controller="multiselectcon">
+<apex:form >
+  <c:MultiselectPicklist leftLabel="Available Contacts"
+    leftOptions="{!conleftlist}"
+    rightLabel="Selected Contacts"
+    rightOptions="{!conrightList}"
+    size="14"
+    width="150px"/>
+</apex:form>
+</apex:page>

@@ -1,0 +1,31 @@
+.panel
+{width: 90%;
+max-width: 1100px;
+}
+
+body button, body .x-btn, body .btn, body .btnDisabled, body .btnCancel, body .menuButton .menuButtonButton
+{color: #fff;
+margin: 1px;
+padding: 5px7px;
+border: 1px solid #2e6da4;
+border-bottom-color: #2e6da4;
+background: #337ab7;
+font-weight: bold;
+font-size: .9em;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+margin-top:2px;}
+
+
+
+
+
+
+
+.h {margin-top:30px;margin-bottom:0px;}
+
+.d
+{
+color:blue;
+}

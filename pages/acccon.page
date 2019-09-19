@@ -1,0 +1,7 @@
+<apex:page controller="acccon">
+  <apex:pageBlock >
+  <apex:pageBlockTable value="{!accconlist}" var="acc">
+  <apex:column value="{!acc.contacts[0].name}"/>
+  </apex:pageBlockTable>
+  </apex:pageBlock>
+  </apex:page>

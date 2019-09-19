@@ -1,0 +1,22 @@
+<apex:page showHeader="false">
+  <apex:panelGrid columns="4">
+  
+    <apex:outputText value="header one" style="font-weight: bold"/>
+    <apex:outputText value="header two" style="font-weight: bold"/>
+    <apex:outputText value="header three" style="font-weight: bold"/>
+    <apex:outputText value="header four" style="font-weight: bold"/> 
+
+    <apex:outputText value="one"/>
+    <apex:outputText value="two"/>
+    <apex:outputText value="three"/>
+    <apex:outputText value="four"/>
+    
+    <apex:outputText value="one"/>
+    <apex:outputText value="two"/>
+    <apex:outputText value="three"/>
+    <apex:outputText value="four"/>
+
+  
+
+  </apex:panelGrid>
+</apex:page>

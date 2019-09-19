@@ -1,0 +1,47 @@
+<apex:page controller="scrollcntrl">
+<apex:includescript value="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" / >
+<apex:includescript value="//code.jquery.com/jquery-1.11.2.js" / >
+<apex:includescript value="//code.jquery.com/ui/1.11.4/jquery-ui.js" / >
+<apex:stylesheet value="//code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<script type="text/javascript">
+var $j = jQuery.noConflict();
+ript infinite scroll detetionJava
+
+var scrollListener = function() {
+    $j(window).one("scroll", function() { 
+        if ($j(window).scrollTop() >= $j(document).height() - $j(window).height() - 100) {
+            if (offsetVal < totalContacts) {
+                loadRecords();
+            }
+        }
+        setTimeout(scrollListener, 200);
+    });
+};
+
+$j(document).ready(function() {
+    loadRecords();
+    scrollListener();
+});
+
+var scrollListener = function() {
+    $j(window).one("scroll", function() { 
+        if ($j(window).scrollTop() >= $j(document).height() - $j(window).height() - 100) {
+            if (offsetVal < totalContacts) {
+                loadRecords();
+            }
+        }
+        setTimeout(scrollListener, 200);
+    });
+};
+ 
+$j(document).ready(function() {
+    loadRecords();
+    scrollListener();
+});
+</script>
+
+<apex:remoteObjects >
+    <apex:remoteObjectModel jsShortHand="con" name="Contact" fields="Id,Name,Email,Phone,MobilePhone" 
+        retrieve="{!$RemoteAction.scrollcntrl.retrieveContacts}"/>
+</apex:remoteObjects>
+</apex:page>

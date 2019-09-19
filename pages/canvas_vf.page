@@ -1,0 +1,63 @@
+<apex:page docType="html-5.0" standardController="Account">
+    <canvas id="demo" width="250" height="250"/>
+    <apex:includeScript value="/soap/ajax/28.0/connection.js"/>
+    <script>
+    sforce.connection.sessionId = "{!$Api.Session_Id}";
+    var canvas = document.getElementById("demo");
+    var context = canvas.getContext("2d");
+    var mouseButton = 0;
+    var lastX = lastY = null;
+
+    function saveImage() {
+        var image = canvas.toDataURL().split(',')[1];
+        var result = captureHelper.saveFile('{!Account.Id}','image',handleResult);
+    }
+    
+    function handleResult(result,event) {
+        if(result.success) {
+            alert('Successfully saved image');
+        } else {
+            alert('Error: '+result.errorMessage);
+        }
+    }
+    
+    function handleEvent(event) {
+        if(event.type=="mousedown") {
+            mouseButton = event.which;
+            lastX = lastY = null;
+        }
+        if(event.type=="mouseup") {
+            mouseButton = 0;
+            lastX = lastY = null;
+        }
+        if(event.type=="mousemove" && mouseButton) {
+            if(!lastX && !lastY) {
+                lastX = event.offsetX;
+                lastY = event.offsetY;
+                context.beginPath();
+                context.moveTo(lastX,lastY);
+                context.lineTo(lastX,lastY,lastX,lastY);
+                context.stroke();
+            } else {
+                context.beginPath();
+                context.moveTo(lastX,lastY);
+                context.lineTo(event.offsetX,event.offsetY);
+                context.stroke();
+                lastX = event.offsetX;
+                lastY = event.offsetY;
+            }
+        }
+        if(event.type=="mousedrag") {
+            event.returnValue=false;
+            event.stopPropagation();
+        }
+    }
+    
+    canvas.addEventListener("mousemove",handleEvent,true);
+    window.addEventListener("mousedown",handleEvent,true);
+    window.addEventListener("mouseup",handleEvent,true);
+    canvas.addEventListener("mousedrag",handleEvent,true);
+    canvas.addEventListener("selectstart",function(event) { event.stopPropagation(); event.returnValue = false; return false; },false);
+    </script>
+    <!--<button onclick="saveImage()">Save</button>-->
+</apex:page>

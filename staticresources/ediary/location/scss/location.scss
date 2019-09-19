@@ -1,0 +1,178 @@
+
+.body-image{
+	margin-bottom : pxtoem(30);
+}
+.comments-section{
+	margin-left:pxtoem(22) !important;
+	margin-right:pxtoem(22) !important;
+	@include breakpoint(tablet-portrait) {
+						width: 90%;
+						margin-left: auto !important;
+						margin-right: auto !important;
+					}
+}
+.div-center{
+	margin-left: auto;
+    margin-right: auto;
+	margin-top: pxtoem(25);
+	font-family : "Montserrat-Bold";
+	font-weight:bold;
+}
+/*.platform-android .div-center{
+  	margin-left: pxtoem(95);
+}*/
+.comments-textarea{
+	resize:none;
+	overflow: auto;
+	width: 100%;
+}
+.location-view-contactcard{
+	@include breakpoint(tablet-portrait) {
+						height: 500px;
+					}
+}
+.platform-android .location-view-contactcard{
+	margin-top: 35px;
+}
+.contact-selection-div-eDiary{
+    display: table;
+    margin-top: pxtoem(20);
+    @include breakpoint(tablet-portrait) {
+        padding-left: 0;
+		width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+}
+.platform-android .contact-selection-div-eDiary{
+    margin-top: 35px;
+    
+}
+
+.selected-name-contact-eDiary{
+	color: $light-blue;
+    font-family: 'Montserrat-Bold';
+    font-size: pxtoem(16);
+    display: table-cell;
+    @include breakpoint(tablet-portrait) {
+        font-size: pxtoemTablet(16);
+        padding-left: 0px;
+        width: 50px;
+    }
+}
+.unselect-name-contact-eDiary{
+	color: $dark-blue;
+    font-size: pxtoem(16);
+    font-family: 'Montserrat-Bold';
+    display: table-cell;
+    @include breakpoint(tablet-portrait) {
+        font-size: pxtoemTablet(16);
+        padding-left: 0px;
+        width: 50px;
+    }
+}
+.first-contact-section-line-eDiary{
+	display: block;
+	height: pxtoem(4.5);
+    margin-top: pxtoem(-6);
+    background-color: $light-blue;
+    hr{
+        border-color: $light-blue !important;
+        border: 0;
+    }
+    /*@include breakpoint(tablet-portrait) {
+       background-color: transparent;
+       width:70px;
+       display: inline-block;
+    }*/
+}
+/*.platform-android .first-contact-section-line-eDiary{
+  	height: pxtoem(4.5);
+    margin-top: pxtoem(-6);
+}*/
+.char-remaining{
+	text-align: right !important;
+    margin-right:pxtoem(22) !important;
+	color:$dark-grey;
+	font-family : "Montserrat-Bold";
+	font-size: pxtoem(14);
+	margin-top: pxtoem(10);
+	@include breakpoint(tablet-portrait) {
+						font-size: pxtoemTablet(14) !important;
+						width: 90%;
+                        margin-left: auto !important;
+                        margin-right: auto !important;
+					}
+}
+.char-left-padding{
+	padding-bottom: pxtoem(25);
+}
+.remaining-label{
+	margin-right: pxtoem(23);
+	 @include breakpoint(tablet-portrait) {
+         margin-right: 0 !important;
+    }
+}
+.additional-notes{
+	margin-top:pxtoem(43);
+	margin-bottom:pxtoem(10);
+	margin-left: pxtoem(24) !important;
+	color:$dark-grey;
+	font-family : "Montserrat-Bold";
+	font-size: pxtoem(14);
+	@include breakpoint(tablet-portrait) {
+						font-size: pxtoemTablet(14) !important;
+						width: 90%;
+						margin-left: auto !important;
+						margin-right: auto !important;
+					}
+}
+.part-selected{
+	li{
+		color:rgb(181,183,185);
+		font-size: pxtoem(19);
+		@include breakpoint(tablet-portrait) {
+			font-size: pxtoemTablet(18);
+		}
+		label{
+			span{
+				 color:$dark-blue;
+				 font-family : "Montserrat-Bold";
+				 font-size: pxtoem(14);
+				 @include breakpoint(tablet-portrait) {
+						font-size: pxtoemTablet(14) !important;
+					}
+			}
+		}
+	}
+}
+.tap-instruction{
+				 color:$dark-grey;
+				 font-family : "Montserrat-Bold";
+				 font-size: pxtoem(14);
+				 @include breakpoint(tablet-portrait) {
+						font-size: pxtoemTablet(14) !important;
+					}
+}
+.parent {
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.front-back-spacing{
+  width:pxtoem(101);
+}
+.bodyImageSVG {
+	@include breakpoint(tablet-portrait) {
+		margin-left:pxtoem(100);
+	}
+}
+.platform-android .label-margin{
+	margin-left: -18px;
+	font-family : "Montserrat-Bold";
+	font-size: pxtoem(14);
+}

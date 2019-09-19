@@ -1,0 +1,39 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"  access="global" >
+    <aura:attribute name="boatTypeId" type="id" default="foo"/>
+    <aura:handler name="FormSubmit"
+                  event="c:FormSubmit"
+                  action="{!c.onFormSubmit}"
+                  phase="capture"/>
+     
+    <article class="slds-card slds-m-bottom_large">
+        <div class="slds-media__body">
+    <div>
+    <lightning:layout >
+                 
+                 <lightning:card title="Find a Boat" class="slds-m-top--medium" >
+                          
+                     <c:BoatSearchForm />
+                     
+                         
+                 </lightning:card>
+        
+   </lightning:layout>
+         </div>
+        </div>
+    </article>
+     <article class="slds-card slds-m-bottom_large">
+        <div class="slds-media__body">
+    <div>
+    
+               <lightning:layout >
+                <lightning:card title="Matching Boats" class="slds-m-top--medium">
+                         <c:BoatSearchResults aura:id="searchcmp"/>
+                         
+                 </lightning:card>
+                    
+
+    </lightning:layout>
+          </div>
+        </div>
+    </article>
+</aura:component>

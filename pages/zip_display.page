@@ -1,0 +1,9 @@
+<apex:page >
+ <apex:form >
+ FRAME
+ <apex:outputPanel >
+ <apex:iframe src="{!URLFOR($Action.Attachment.Download,'00P280000051sDM')}" scrolling="true" id="theIframe"/>
+  
+ </apex:outputPanel>
+ </apex:form>
+</apex:page>

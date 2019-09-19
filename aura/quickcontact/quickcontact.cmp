@@ -1,0 +1,41 @@
+<aura:component implements="lightning:actionOverride,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" >
+	<aura:attribute name="recordId" type="String" />
+  <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>-->
+   
+    <aura:attribute name="account" type="Object"/>
+    <aura:attribute name="simpleAccount" type="Object"/>
+    <aura:attribute name="accountError" type="String"/>
+    <force:recordData aura:id="accountRecordLoader"
+        recordId="{!v.recordId}"
+        layoutType="FULL"
+        targetRecord="{!v.account}"
+        targetFields="{!v.simpleAccount}"
+        targetError="{!v.accountError}"
+    />
+ <article class="slds-card">
+<header class="slds-media slds-media_center slds-has-flexi-truncate">
+    <div class="slds-media__body">
+<h2 class="slds-card__header-title">
+
+<p class="slds-text-heading_small">Contact creation</p>
+
+</h2>
+</div>
+    </header>
+    <div class="slds-card__body slds-card__body_inner">
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem padding="around-small" flexibility="grow" size="8" mediumDeviceSize="10" largeDeviceSize="8">
+            <center><b>create contact</b></center>
+        </lightning:layoutItem>
+    </lightning:layout>
+    </div>
+    <div class="slds-card__footer">
+    <lightning:layout horizontalAlign="end">
+     <aura:if isTrue="{!equals(v.simpleAccount.Active__c,'Yes')}">
+    <lightning:button class ="slds-button slds-button_brand" label="create con" onclick="{!c.createcon}"/>
+     </aura:if>
+    <lightning:button class ="slds-button slds-button_brand" label="Cancel" onclick="{!c.cancel}"/>
+    </lightning:layout>
+        </div>
+    </article> 
+</aura:component>

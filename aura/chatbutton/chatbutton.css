@@ -1,0 +1,30 @@
+@media (max-width: 767px) {
+    .THIS .slds-col:nth-of-type(2) .ui-widget {
+        margin: 0;
+    }
+    .THIS .mobile-content {
+        padding: 20px;
+    }
+    .THIS .title-icon {
+        display: block;
+        margin: 0 auto 1rem auto;
+    }
+    .THIS.chat-now-link {
+        background: url('/resource/OnePathPortalAssets/images/chat-icon.png') 13px 13px no-repeat #1f2b7c;
+        bottom: 0;
+        color: #FFF;
+        display: block;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.15;
+        padding: 14px 14px 12px 55px;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        text-transform: uppercase;
+        width: auto;
+    }
+    .THIS.chat-now-link br {
+        display: none;
+    }
+}

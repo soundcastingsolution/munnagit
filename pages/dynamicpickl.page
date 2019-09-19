@@ -1,0 +1,7 @@
+<apex:page controller="picklistdyn">
+  <apex:form > <apex:selectList value="{!indusselect}"
+         size="1" required="true">
+  <apex:selectOptions value="{!industries}"/>
+</apex:selectList>
+</apex:form>
+</apex:page>

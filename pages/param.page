@@ -1,0 +1,6 @@
+<apex:page standardController="Contact">
+    <apex:outputLink value="/apex/contactpage?id={!contact.id}">
+        Search contact
+        <apex:param name="&q" value="{!contact.name}" assignTo="{!par}"/>
+    </apex:outputLink>
+</apex:page>

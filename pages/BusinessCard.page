@@ -1,0 +1,14 @@
+<apex:page controller="userextension">
+
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection title="userdetails">
+<apex:outputtext label="email" value="{!$User.Email}"/><br></br>
+<apex:outputtext label="firstname" value="{!$User.FirstName}"/><br></br>
+<apex:outputtext label="lastname" value="{!$User.LastName}"/><br></br>
+<apex:outputtext label="title" value="{!$User.Title}"/>
+<apex:outputtext label="phone" value="{!$User.Phone}"/>
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

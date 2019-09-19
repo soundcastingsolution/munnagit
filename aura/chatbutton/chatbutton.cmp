@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<ltng:require scripts="https://c.la1-c1-ukb.salesforceliveagent.com/content/g/js/43.0/deployment.js" afterScriptsLoaded="{!c.liveChatInit}"/>
+<!--    <aura:handler name="init" value="{!this}" action="{!c.init}" /> -->
+    <div id="liveagent_button_online_57328000000L5x8"  onclick="{!c.startLiveChat}" class="chat-now-link">Chat<br /><br />Now</div>
+    <div id="liveagent_button_offline_57328000000L5x8" style="display:none;"  class="chat-now-link" >Chat<br /><br />Offline</div>
+</aura:component>

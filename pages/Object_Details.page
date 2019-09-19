@@ -1,0 +1,16 @@
+<apex:page controller="Object_details_Controller">
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:pageBlockTable value="{!names}" var="n">
+<apex:column headerValue="name">
+<a href=""><apex:outputText >{!n}</apex:outputText></a>
+</apex:column>
+
+
+
+</apex:pageBlockTable>
+
+</apex:pageBlockSection>
+</apex:pageBlock>
+ 
+</apex:page>

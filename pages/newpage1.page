@@ -1,0 +1,33 @@
+<apex:page standardController="account" >
+    <!--Make sure you have the Javascript in the same order that I have listed below.-->
+    <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css"/>
+    <script type="text/javascript">
+        //Create a new variable j$ just to avoid any conflicts with other libraries which may be using $.
+        var j$ = jQuery.noConflict();
+        
+        //on Document ready
+       
+        
+        j$(document).ready(function(){
+           j$('input[id$="datepicker"]').datepicker()
+          });
+       
+        
+    </script>
+    <apex:form >
+        
+   
+<apex:inputText id="datepicker" />
+
+<body>
+ <br/>
+ <apex:inputText id="theTextInput" label="name"/><br/>
+ <apex:inputText id="theTextInput2" label="Site"/>
+ 
+ 
+</body>
+        
+    </apex:form>
+</apex:page>

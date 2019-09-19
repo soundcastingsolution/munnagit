@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable">
+<input type="text" class="form-control" onkeyup="{!c.searchKeyChange}"
+            placeholder="Search"/>
+ <aura:registerEvent name="SearchKeyChange" type="c:SearchKeyChange"/>
+
+</aura:component>

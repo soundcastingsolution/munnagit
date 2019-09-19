@@ -1,0 +1,4 @@
+<apex:page controller="counter" action="{!countint}">
+ 
+ {!count} 
+</apex:page>

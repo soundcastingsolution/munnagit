@@ -1,0 +1,25 @@
+<apex:page standardController="Opportunity" recordSetVar="rr">
+<div id="lightning"/> 
+    <script src="/lightning/lightning.out.js"></script>
+    <script>
+        var UITheme = '{!($User.UITheme)}';
+    if(UITheme == 'Theme4t' || UITheme == 'Theme4d'){
+         var recordID = "{!$CurrentPage.parameters.Id}";
+          $Lightning.use("c:New_Opportunity_App", function() {
+              $Lightning.createComponent("c:New_Opportunity",
+              {"accoutid":recordID},
+              "lightning",
+                  function(cmp) {
+                        // do some stuff
+                  });
+        });
+    }
+    else{
+        var u = window.location.href;
+        u = u.replace('Dynamic_Search_Intermediate', 'DynamicOpportunityRecordTypeFetchPage');
+        window.location.href = u;
+    }
+</script>
+
+
+</apex:page>

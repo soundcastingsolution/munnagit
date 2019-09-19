@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<img src="http://saisekharorg-developer-edition.ap6.force.com/domain/resource/1536389589000/fullbodysvg" height="50" width="100" />
+    
+</aura:component>

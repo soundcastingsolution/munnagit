@@ -1,0 +1,7 @@
+<apex:page >
+  
+  {!$User.Id}
+  <apex:outputText value="{0, date, MMMM d','  yyyy HH:mm:ss zzzz}">
+    <apex:param value="{!NOW()}" />
+</apex:outputText>
+</apex:page>

@@ -1,0 +1,11 @@
+<aura:component controller="ContactController">
+<!-- Handle component initialization in a client-side controller -->
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+<!-- The list of contacts to display -->
+<aura:attribute name="contacts" type="Contact[]"/>
+<ui:inputSelect aura:id="opt" label="Contacts" change="{!c.onSelectChange}">
+<aura:iteration items="{!v.contacts}" var="contact">
+<ui:inputSelectOption text="{!contact.Name}" label="{!contact.Name}" />
+</aura:iteration>
+</ui:inputSelect>
+</aura:component>

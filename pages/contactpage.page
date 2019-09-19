@@ -1,0 +1,9 @@
+<apex:page standardController="Contact" extensions="paramExtension">
+    
+    <apex:form >
+        <apex:outputField value="{!contact.name}"/> <p/>
+        {!par}
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:inputField value="{!acc.recordtypeid}"/>
+    </apex:form>
+</apex:page>

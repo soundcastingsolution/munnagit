@@ -1,0 +1,24 @@
+<aura:component description="BoatDetails"
+                implements="flexipage:availableForAllPageTypes">
+   <aura:attribute name="boat" type="Boat__c"/>
+    <aura:attribute name="recordError" type="String"/>
+	<aura:attribute name="id" type="Id" default="a0b0K000007T9k5QAC" access="public"/>
+    <force:recordData aura:id="service"
+                      recordId="{!v.id}"
+                      mode="VIEW"
+                      fields="Id,
+                                Name,
+                                Description__c,
+                                Price__c, Length__c,
+                                Contact__r.Name,
+                                Contact__r.Email,
+                                Contact__r.HomePhone,
+                                BoatType__r.Name,
+                                Picture__c"
+
+                      targetFields="{!v.boat}"
+                      targetError="{!v.recordError}"
+                      recordUpdated="{!c.onRecordUpdated}" />
+ 
+ {!v.boat}  
+</aura:component>

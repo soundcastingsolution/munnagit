@@ -1,0 +1,6 @@
+<apex:page standardController="Account">
+    <apex:repeat value="{!$ObjectType.account.FieldSets.test_fieldset}" var="f"> 
+        <apex:outputText value="{!f}" /><br/>
+        <apex:outputtext value="{!f.FieldPath}"/>
+    </apex:repeat>
+</apex:page>

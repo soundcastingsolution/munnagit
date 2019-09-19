@@ -1,0 +1,12 @@
+<apex:page controller="businesscontroller">
+  <apex:pageblock >
+ <apex:pageBlockSection >
+<apex:pageBlocktable value="{!ul}" var="ut">
+<apex:column headerValue="name">
+<apex:outputField value="{!ut.name}"/>
+</apex:column>
+</apex:pageBlocktable> 
+</apex:pageBlockSection>
+</apex:pageblock>
+ 
+</apex:page>

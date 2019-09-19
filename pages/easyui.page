@@ -1,0 +1,118 @@
+<apex:page >
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css"/>
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="http://www.jeasyui.com/easyui/datagrid-detailview.js"></script>
+
+<body>
+    <h2>Edit form in expanded row details</h2>
+    <p>Click the expand button to expand a detail form.</p>
+    
+    
+    <table id="dg" title="My Users" style="width:700px;height:250px"
+            
+            toolbar="#toolbar" pagination="true"
+            fitColumns="true" singleSelect="true">
+        <thead>
+            <tr>
+                <th field="firstname" width="50">First Name</th>
+                <th field="lastname" width="50">Last Name</th>
+                <th field="phone" width="50">Phone</th>
+                <th field="email" width="50">Email</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="toolbar">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newItem()">New</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyItem()">Destroy</a>
+    </div>
+    <script>
+        $(function(){
+        j$ = jQuery.noConflict();
+            j$('#dg').datagrid({
+                view: detailview,
+                detailFormatter:function(index,row){
+                    return '<div class="ddv"></div>';
+                },
+                onExpandRow: function(index,row){
+                    var ddv = j$(this).datagrid('getRowDetail',index).find('div.ddv');
+                    ddv.panel({
+                        border:false,
+                        cache:true,
+                        href:'show_form.php?index='+index,
+                        onLoad:function(){
+                            j$('#dg').datagrid('fixDetailRowHeight',index);
+                            j$('#dg').datagrid('selectRow',index);
+                            j$('#dg').datagrid('getRowDetail',index).find('form').form('load',row);
+                        }
+                    });
+                    j$('#dg').datagrid('fixDetailRowHeight',index);
+                }
+            });
+        });
+        function saveItem(index){
+            var row = j$('#dg').datagrid('getRows')[index];
+            var url = row.isNewRecord ? 'save_user.php' : 'update_user.php?id='+row.id;
+            j$('#dg').datagrid('getRowDetail',index).find('form').form('submit',{
+                url: url,
+                onSubmit: function(){
+                    return $(this).form('validate');
+                },
+                success: function(data){
+                    data = eval('('+data+')');
+                    data.isNewRecord = false;
+                    j$('#dg').datagrid('collapseRow',index);
+                    j$('#dg').datagrid('updateRow',{
+                        index: index,
+                        row: data
+                    });
+                }
+            });
+        }
+        function cancelItem(index){
+            var row = $('#dg').datagrid('getRows')[index];
+            if (row.isNewRecord){
+                j$('#dg').datagrid('deleteRow',index);
+            } else {
+                j$('#dg').datagrid('collapseRow',index);
+            }
+        }
+        function destroyItem(){
+            var row = $('#dg').datagrid('getSelected');
+            if (row){
+                j$.messager.confirm('Confirm','Are you sure you want to remove this user?',function(r){
+                    if (r){
+                        var index = $('#dg').datagrid('getRowIndex',row);
+                        j$.post('destroy_user.php',{id:row.id},function(){
+                            j$('#dg').datagrid('deleteRow',index);
+                        });
+                    }
+                });
+            }
+        }
+        function newItem(){
+            j$('#dg').datagrid('appendRow',{isNewRecord:true});
+            var index = $('#dg').datagrid('getRows').length - 1;
+            j$('#dg').datagrid('expandRow', index);
+            j$('#dg').datagrid('selectRow', index);
+        }
+    </script>
+    <style type="text/css">
+        form{
+            margin:0;
+            padding:0;
+        }
+        .dv-table td{
+            border:0;
+        }
+        .dv-table input{
+            border:1px solid #ccc;
+        }
+    </style>
+    
+</body>
+
+</apex:page>

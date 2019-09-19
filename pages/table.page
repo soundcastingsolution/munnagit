@@ -1,0 +1,15 @@
+<apex:page standardController="Account" lightningStylesheets="true" showHeader="true">
+<apex:slds />
+    <apex:pageBlock title="My Content" mode="maindetail" tabStyle="Case">
+
+        <apex:pageBlockTable value="{!account.Contacts}" var="item" >
+
+            <apex:column value="{!item.AccountId}"/>
+            <apex:column value="{!item.name}"/>
+           
+
+        </apex:pageBlockTable>
+
+    </apex:pageBlock>
+
+</apex:page>

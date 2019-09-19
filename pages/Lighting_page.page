@@ -1,0 +1,35 @@
+<apex:page >
+    <apex:includeLightning />
+    <apex:stylesheet value="/resource/bootstrap/"/>
+    <div id="bar"/>
+    <div id="show"/>
+    <div id="lightning"/>
+    
+    <script src="https://saisekharorg-dev-ed.my.salesforce.com/lightning/lightning.out.js"></script>
+    <script>
+    //Tell your Visualforce page to use ExposeVF Lightning app
+        $Lightning.use("c:QuickContacts", function() {
+            // Write a function that creates the component on the page
+          $Lightning.createComponent("c:ContactList",
+          {},
+          "lightning",
+          function(cmp) {
+            // do some stuff
+          });
+          
+          $Lightning.createComponent("c:SearchBar",
+          {},
+          "bar",
+          function(cmp) {
+            // do some stuff
+          });
+          
+          $Lightning.createComponent("c:ContactDetails",
+          {},
+          "show",
+          function(cmp) {
+            // do some stuff
+          });
+        });
+    </script>
+</apex:page>

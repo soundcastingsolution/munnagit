@@ -1,0 +1,16 @@
+<aura:component controller="Accountlighting" implements="force:appHostable">
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+<aura:attribute name="Accounts" type="Account[]"/>
+<!-- Create a drop-down list with two options -->
+<ui:inputSelect aura:id="selection" change="{!c.select}">
+<ui:inputSelectOption text="All Accounts" label="All Accounts"/>
+<ui:inputSelectOption text="All Accounts2" label="All Accounts2"/>
+</ui:inputSelect>
+<!-- Display record create page when button is clicked -->
+<ui:button label="New Account" press="{!c.createRecord}"/>
+<!-- Iterate over the list of contacts and display them -->
+<aura:iteration var="Account" items="{!v.Accounts}">
+
+<c:AccountAppnewcomp Account="{!Account}"/>
+</aura:iteration>
+</aura:component>

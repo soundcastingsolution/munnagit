@@ -1,0 +1,6 @@
+<apex:page standardController="Account">
+   
+   <apex:outputText value="{0}">
+       <apex:param value="{!Account.Name}" />
+   </apex:outputText>
+</apex:page>

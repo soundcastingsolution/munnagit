@@ -1,0 +1,5 @@
+<apex:page docType="html-5.0" standardStylesheets="false" sidebar="false" showHeader="false" applyHtmlTag="false">
+<html>
+    <c:AngularTable sobjectName="Contact" fieldCsv="Name,Phone" searchable="true"/>      
+</html>
+</apex:page>

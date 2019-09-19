@@ -1,0 +1,30 @@
+<apex:page controller="sampleCon" tabStyle="account">
+    <apex:form id="refresh" >
+        <apex:selectList value="{!countries}" multiselect="true">
+            <apex:selectOptions value="{!items}"/>
+          </apex:selectList>
+        
+
+        <apex:commandButton value="Test" action="{!test}" rerender="out" status="status"/>
+    </apex:form>
+
+    <apex:outputPanel id="out">
+        <apex:actionstatus id="status" startText="testing...">
+            <apex:facet name="stop">
+                <apex:outputPanel >
+                    <p>You have selected:</p>
+                    <apex:dataList value="{!countries}" var="c">{!c}</apex:dataList>
+                   
+                    <apex:outputText >{!conl[0]}</apex:outputText>
+                    <apex:outputText >{!conl[1]}</apex:outputText>
+                    <apex:outputText >{!conl[2]}</apex:outputText>
+                     <apex:outputText >{!conl[3]}</apex:outputText>
+                 
+                   
+                   
+                    
+                </apex:outputPanel>
+            </apex:facet>
+        </apex:actionstatus>
+    </apex:outputPanel>
+</apex:page>

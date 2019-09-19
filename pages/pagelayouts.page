@@ -1,0 +1,33 @@
+<apex:page >
+<apex:includescript value="/soap/ajax/35.0/connection.js"/>
+ <apex:includescript value="/soap/ajax/35.0/apex.js"/>
+  <script>
+sforce.connection.sessionId = '{!$Api.Session_ID}';
+var result = sforce.connection.describeLayout("Account");
+var layouts = result.getArray("layouts");
+for (var i=0; i<layouts.length; i++) {
+var layout = layouts[0];
+detailLayoutSections(layout.detailLayoutSections);
+}
+function detailLayoutSections(sections) {
+for (var i=0; i<sections.length; i++) {
+var section = sections[i];
+log(section.columns + ":" + section.heading + ":");
+layoutRows(section.getArray("layoutRows"));
+}
+}
+function layoutRows(rows) {
+for (var i=0; i<rows.length; i++) {
+var row = rows[i];
+layoutItems(row.getArray("layoutItems"));
+}
+}
+function layoutItems(items) {
+for (var i=0; i<items.length; i++) {
+var item = items[i];
+log(" " + item.label);
+}
+}
+  
+  </script>
+</apex:page>

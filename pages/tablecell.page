@@ -1,0 +1,24 @@
+<apex:page >
+  <style>
+  .top_row {
+    display: table;
+    width: 100%;
+}
+
+.top_row > div {
+    display: table-cell;
+    width: 50%;
+    border-bottom: 1px solid #eee;
+}
+  
+  </style>
+  <table border="0" width="100%">
+    <tr>
+        <td>Hello</td>
+        <td>World</td>
+    </tr>
+    <tr>
+        <td colspan="2">Merged</td>
+    </tr>
+</table>
+</apex:page>

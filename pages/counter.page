@@ -1,0 +1,10 @@
+<apex:page controller="SessionCacheController" action="{!init}">
+
+    <apex:outputPanel id="output">
+       
+        Cached counter: <apex:outputText value="{!counter}"/>
+       
+    </apex:outputPanel>
+    
+    
+</apex:page>

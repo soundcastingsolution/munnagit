@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"> <!--inherit recordId attribute-->
+<aura:attribute name="record" type="Object" />
+<aura:attribute name="simpleRecord" type="Object" />
+<aura:attribute name="recordError" type="String" />
+<force:recordData aura:id="recordEditor"
+    layoutType="FULL"
+    recordId="{!v.recordId}"
+    targetError="{!v.recordError}"
+    targetRecord="{!v.record}"
+    targetFields ="{!v.simpleRecord}"
+    mode="EDIT" />
+    <!-- Display a lightning card with details about the record -->
+    <div class="Record Details"> 
+        <lightning:card title="{!v.simpleRecord.Name}" >
+            sometest4
+            <div class="slds-p-horizontal--small">
+                <p class="slds-text-heading--small">
+                    <!--<force:inputField aura:id="test_lookup_field" value="{!v.simpleRecord.AccountId}"/>--> 
+                    <lightning:formattedText title="Billing State" value="{!v.simpleRecord.Account.Id}" /></p>
+                <p class="slds-text-heading--small">
+                     <lightning:formattedText title="Billing City" value="{!v.simpleRecord.BillingCity}" /></p>
+            </div>
+        </lightning:card>
+    </div>
+    <br/>
+   
+    
+</aura:component>

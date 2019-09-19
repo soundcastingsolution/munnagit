@@ -1,0 +1,32 @@
+<apex:page controller="sampleConradio">
+    <apex:form >
+        <apex:pageBlock >
+         
+        <apex:pageBlockTable value="{!accountsdata}" var="r">
+        
+        <apex:column value="{!r.acc.name}"/>
+        <apex:column >
+           <input type="radio" name="selectRadio" id="radio">
+              <apex:actionSupport event="onclick" action="{!Selectedacc}" rerender="out">                                       
+              <apex:param name="id" value="{!r.acc.id}" />
+                      </apex:actionSupport>
+                           </input>
+        </apex:column>
+        
+        </apex:pageBlockTable>
+        
+        </apex:pageBlock>
+        
+        
+        <!--<apex:selectRadio value="{!country}">
+            <apex:selectOptions value="{!items}"/>
+            </apex:selectRadio><p/>
+            <apex:commandButton value="Test" action="{!test}" rerender="out" status="status"/>-->
+     </apex:form>
+     
+     <apex:outputPanel id="out">
+          
+                 <apex:outputText >selectid is:"{!selectedid}"</apex:outputText> 
+               
+     </apex:outputPanel> 
+</apex:page>

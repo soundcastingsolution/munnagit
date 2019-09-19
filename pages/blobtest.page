@@ -1,0 +1,7 @@
+<apex:page controller="blobcontroller">
+<apex:form >
+<apex:inputFile value="{!filedata.body}"></apex:inputFile>
+<apex:outputText >{!datadisp}</apex:outputText>
+<apex:commandButton action="{!displayblob}" value="Upload"/>
+</apex:form>  
+</apex:page>

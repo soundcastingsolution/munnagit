@@ -1,0 +1,18 @@
+<apex:page standardController="Account" recordSetVar="Accounts">
+    <apex:form >
+        <apex:pageBlock title="My Content" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="My Content Section" columns="3">
+           <apex:repeat value="{!accounts}" var="a">
+           
+           <input type="checkbox"/>
+           {!a.name}
+           
+            
+         </apex:repeat>
+         </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

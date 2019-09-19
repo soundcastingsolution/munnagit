@@ -1,0 +1,35 @@
+<apex:page controller="formcontroller" applyBodyTag="false">
+ <style type="text/css">
+  .bPageBlock .pbTitle {
+        width: 100%;    
+        text-align: center;
+    }
+  body .bPageBlock .pbTitle h2{
+    color:#0000FF;
+    
+    }
+    
+  .homeTab .bPageBlock {
+    border-top: 3px solid #f3f3ec;
+}
+
+
+</style>
+ <apex:form > 
+ <apex:pageBlock title="Registration form">
+ <center>
+ <apex:selectRadio value="{!selectedoption}">
+  <apex:selectOption itemlabel="form1" itemValue="1" />
+  <apex:selectOption itemlabel="form2" itemValue="2" />
+  <apex:selectOption itemlabel="form3" itemValue="3" />
+  </apex:selectRadio>
+  </center>
+  </apex:pageBlock>
+  <apex:pageBlock >
+  <apex:pageBlockSection columns="1" >
+  <apex:inputtext value="{!name}" label="Name:" style="width:60%;float:left;"/>
+  </apex:pageBlockSection>
+  </apex:pageBlock>
+  
+ </apex:form>
+</apex:page>
