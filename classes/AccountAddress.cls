@@ -4,7 +4,8 @@ Public Class AccountAddress{
             for(Account acc:lstAcc){
                 if(acc.Match_Billing_Address__c && (acc.BillingPostalCode != '' || acc.BillingPostalCode != null)){
                      acc.ShippingPostalCode =  acc.BillingPostalCode;
-                     //so comments  
+                     //so comments 
+                     //these changes 
                 }
             }    
         }
